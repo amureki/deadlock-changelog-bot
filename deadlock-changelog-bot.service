@@ -1,0 +1,11 @@
+[Unit]
+Description=Deadlock Changelog Bot
+
+[Service]
+WorkingDirectory=/home/deadlock-changelog-bot/
+ExecStart=/root/.cargo/bin/uv run /home/deadlock-changelog-bot/main.py
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.service

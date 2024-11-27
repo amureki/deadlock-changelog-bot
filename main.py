@@ -16,7 +16,7 @@ import datetime
 import telegram
 import telegraph
 
-POLL_INTERVAL_SECONDS = os.getenv("POLL_INTERVAL_SECONDS", 3600 * 24 * 14)
+POLL_INTERVAL_SECONDS = os.getenv("POLL_INTERVAL_SECONDS", 3600)
 DEADLOCK_FORUM_CHANGELOG_URL = (
     "https://forums.playdeadlock.com/forums/changelog.10/?last_days=7"
 )

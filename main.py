@@ -16,7 +16,7 @@ import datetime
 import telegram
 import telegraph
 
-POLL_INTERVAL_SECONDS = os.getenv("POLL_INTERVAL_SECONDS", 3600)
+POLL_INTERVAL_SECONDS = os.getenv("POLL_INTERVAL_SECONDS", 3600 * 24 * 14)
 DEADLOCK_FORUM_CHANGELOG_URL = (
     "https://forums.playdeadlock.com/forums/changelog.10/?last_days=7"
 )
@@ -74,6 +74,7 @@ def fetch_changelog_urls():
             seconds=POLL_INTERVAL_SECONDS
         )
         if int(match[1]) > last_parsed_at.timestamp():
+            logger.warning("Found new changelog entry: %s", url)
             urls.append(url)
 
     return set(urls)
